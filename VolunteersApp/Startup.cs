@@ -35,6 +35,7 @@ namespace VolunteersApp
 
             var connection = "Server=tcp:volsapp.database.windows.net,1433;Initial Catalog=VolsDb;Persist Security Info=False;User ID=siva;Password=Kanhaapp@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 			services.AddDbContext<TaskContext>(options => options.UseSqlServer(connection));
+			services.AddDbContext<LoginUserContext>(options => options.UseSqlServer(connection));
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

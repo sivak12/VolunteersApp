@@ -48,7 +48,7 @@ namespace VolunteersApp.Controllers
 			_context.Task.Add(task);
 			_context.SaveChanges();
 
-			return CreatedAtRoute("GetTodo", new { id = task.Id }, task);
+			return CreatedAtRoute("GetTask", new { id = task.Id }, task);
 		}
 
 
@@ -80,7 +80,6 @@ namespace VolunteersApp.Controllers
 			_context.SaveChanges();
 			return new NoContentResult();
 		}
-
 
 
 		[HttpDelete("{id}")]
