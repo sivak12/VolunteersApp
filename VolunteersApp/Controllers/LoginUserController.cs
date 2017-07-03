@@ -34,6 +34,20 @@ namespace VolunteersApp.Controllers
 			return new ObjectResult(loginUser);
 		}
 
+
+        [Route("username/{name}")]
+        public IActionResult GetByName(string name)
+        {
+            var loginUser = _context.LoginUser
+                    .Where(b => b.Username == name)
+                    .FirstOrDefault();
+            if (loginUser == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(loginUser);
+        }
+
 		[HttpPost]
 		public IActionResult Create([FromBody] LoginUser loginUser)
 		{
@@ -47,8 +61,6 @@ namespace VolunteersApp.Controllers
 
 			return CreatedAtRoute("GetLoginUser", new { id = loginUser.Id }, loginUser);
 		}
-
-
 
 		[HttpPut("{id}")]
 		public IActionResult Update(int id, [FromBody] LoginUser loginUser)
@@ -65,6 +77,7 @@ namespace VolunteersApp.Controllers
 			}
 
 			existingLoginUser.AbhyasiId = loginUser.AbhyasiId;
+            existingLoginUser.Username = loginUser.Username;
 			existingLoginUser.Name = loginUser.Name;
 			existingLoginUser.Email = loginUser.Email;
 			existingLoginUser.Mobile = loginUser.Mobile;
