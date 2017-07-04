@@ -83,6 +83,8 @@ namespace VolunteersApp.Controllers
 			existingLoginUser.Mobile = loginUser.Mobile;
 			existingLoginUser.Gender = loginUser.Gender;
 			existingLoginUser.Password = loginUser.Password;
+			existingLoginUser.IsAdmin = loginUser.IsAdmin;
+			existingLoginUser.Location = loginUser.Location;
 
 			_context.LoginUser.Update(existingLoginUser);
 			_context.SaveChanges();

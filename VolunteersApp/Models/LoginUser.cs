@@ -11,5 +11,7 @@ namespace VolunteersApp.Models
 		public string Mobile { get; set; }
 		public string Gender { get; set; }
 		public string Password { get; set; }
-    }
+		public string IsAdmin { get; set; }
+		public string Location { get; set; }
+	}
 }
